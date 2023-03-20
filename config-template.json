@@ -1,6 +1,6 @@
 {
   "model": {
-    "type" : "chatgpt",
+    "type": "chatgpt",
     "openai": {
       "api_key": "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",
       "model": "gpt-3.5-turbo",
@@ -12,8 +12,9 @@
       "acs_token": "YOUR ACS TOKEN",
       "cookie": "YOUR COOKIE"
     },
-    "bing":{
-        "cookies":[]
+    "bing": {
+      "cookies": []
+    }
   },
 
   "channel": {
