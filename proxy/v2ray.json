@@ -32,13 +32,13 @@
       "protocol": "vmess",
       "streamSettings": {
         "wsSettings": {
-          "path": "/ws-6167cb9e-f782-4ca7-9dd7-241f1ba74bc1",
+          "path": "/ws-3d6834bb-88ab-4793-944c-0cd4046fdd6c",
           "headers": {
-            "host": "us2.snode.date"
+            "host": "us3.snode.date"
           }
         },
         "tlsSettings": {
-          "serverName": "us2.snode.date",
+          "serverName": "us3.snode.date",
           "allowInsecure": false
         },
         "security": "tls",
@@ -48,7 +48,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "us2.snode.date",
+            "address": "us3.snode.date",
             "users": [
               {
                 "id": "66b112f0-717b-32ea-ae2b-2b211d53334a",
@@ -57,7 +57,7 @@
                 "security": "aes-128-gcm"
               }
             ],
-            "port": 8002
+            "port": 443
           }
         ]
       }
