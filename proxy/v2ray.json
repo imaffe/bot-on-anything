@@ -1,41 +1,91 @@
 {
+  "log": {
+    "error": "",
+    "loglevel": "info",
+    "access": ""
+  },
   "inbounds": [
     {
-      "port": 1080,
+      "listen": "127.0.0.1",
       "protocol": "socks",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls"]
-      },
       "settings": {
+        "udp": false,
         "auth": "noauth"
-      }
+      },
+      "port": "1080"
+    },
+    {
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "settings": {
+        "timeout": 360
+      },
+      "port": "1087"
     }
   ],
   "outbounds": [
     {
+      "mux": {
+        "enabled": false,
+        "concurrency": 8
+      },
       "protocol": "vmess",
+      "streamSettings": {
+        "wsSettings": {
+          "path": "/ws-6167cb9e-f782-4ca7-9dd7-241f1ba74bc1",
+          "headers": {
+            "host": "us2.snode.date"
+          }
+        },
+        "tlsSettings": {
+          "serverName": "us2.snode.date",
+          "allowInsecure": false
+        },
+        "security": "tls",
+        "network": "ws"
+      },
+      "tag": "proxy",
       "settings": {
         "vnext": [
           {
-            "address": "vmess://eyJob3N0IjoidXMyLnNub2RlLmRhdGUiLCJwYXRoIjoiXC93cy02MTY3Y2I5ZS1mNzgyLTRjYTctOWRkNy0yNDFmMWJhNzRiYzEiLCJ0bHMiOiJ0bHMiLCJhZGQiOiJ1czIuc25vZGUuZGF0ZSIsInBvcnQiOjgwMDIsImFpZCI6MiwibmV0Ijoid3MiLCJ0eXBlIjoibm9uZSIsInYiOiIyIiwicHMiOiJWMi1VUy0yIChXUytUTFMpIiwiaWQiOiI2NmIxMTJmMC03MTdiLTMyZWEtYWUyYi0yYjIxMWQ1MzMzNGEifQ==",
-            "port": 8002,
+            "address": "us2.snode.date",
             "users": [
               {
                 "id": "66b112f0-717b-32ea-ae2b-2b211d53334a",
-                "alterId": 2
+                "alterId": 2,
+                "level": 0,
+                "security": "aes-128-gcm"
               }
-            ]
+            ],
+            "port": 8002
           }
         ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "wsSettings": {
-          "path": "/v2"
+      }
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP",
+        "userLevel": 0
+      }
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "none"
         }
       }
     }
-  ]
+  ],
+  "dns": {},
+  "routing": {
+    "settings": {
+      "domainStrategy": "AsIs",
+      "rules": []
+    }
+  },
+  "transport": {}
 }
