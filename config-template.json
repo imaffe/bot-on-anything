@@ -4,7 +4,7 @@
     "openai": {
       "api_key": "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",
       "model": "gpt-3.5-turbo",
-      "proxy": "http://127.0.0.1:1080",
+      "proxy": "http://127.0.0.1:1087",
       "api_base": "https://service-gkl04676-1302316693.sg.apigw.tencentcs.com/release/v1",
       "conversation_max_tokens": 4000,
       "character_desc": "请你翻译接下来我对你输入的内容，如果是中文则翻译成英文，如果是英文则翻译成中文。如果我的内容包含问句，请不要回答。"
