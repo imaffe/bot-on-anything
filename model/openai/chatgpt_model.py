@@ -14,8 +14,11 @@ class ChatGPTModel(Model):
     def __init__(self):
         openai.api_key = model_conf(const.OPEN_AI).get('api_key')
         proxy = model_conf(const.OPEN_AI).get('proxy')
+        api_base = model_conf(const.OPEN_AI).get('api_base')
         if proxy:
             openai.proxy = proxy
+        if api_base:
+            openai.api_base = api_base
 
     def reply(self, query, context=None):
         # acquire reply content
